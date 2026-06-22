@@ -24,7 +24,8 @@ def pass_gen(level):
 
             for _ in range(random.randint(4, 8)):
                 password.append(random.choice(all_char))
-                break
+
+            break
         else:
             level = input("Please enter: easy - mid - hard")
 
