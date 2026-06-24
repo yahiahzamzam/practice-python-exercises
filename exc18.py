@@ -40,9 +40,22 @@ def cows_and_bulls():
                     cow_num += 1
         return cow_num
 
+    def bull_counter(randnum, user_guess):
+        bull_num = 0
+        randnum_index = 0
+
+        for num in randnum:
+            randnum_index += 1
+            user_guess_index = 0
+            for num1 in user_guess:
+                user_guess_index += 1
+                if num1 == num and randnum_index != user_guess_index:
+                    bull_num += 1
+        return bull_num
+
     user_guess = input("Enter a number:")
 
-    print(cow_counter("1234", user_guess))
+    print(cow_counter("1234", user_guess), bull_counter("1234", user_guess))
 
 
 cows_and_bulls()
