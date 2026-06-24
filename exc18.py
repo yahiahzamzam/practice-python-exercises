@@ -30,7 +30,7 @@ def cows_and_bulls():
     randnum = "".join([str(random.randint(0, 9)) for _ in range(4)])
 
     # Cow counter function
-    def cow_counter(randnum, user_guess):
+    def cow_counter(randnum, user_guess="qqqq"):
         cow_num = 0
         randnum_index = 0
 
@@ -44,7 +44,7 @@ def cows_and_bulls():
         return cow_num
 
     # bull counter function
-    def bull_counter(randnum, user_guess):
+    def bull_counter(randnum, user_guess="qqqq"):
         bull_num = 0
         randnum_index = 0
 
@@ -59,7 +59,16 @@ def cows_and_bulls():
 
     guesses = 0
     while True:
-        user_guess = input("Enter a number:\nQUIT: Q\n")
+        while True:
+            user_guess = input("Enter a number:\nQUIT: Q\n")
+            if user_guess.lower() == "q":
+                break
+            elif len(user_guess) != 4:
+                print("please enter exactly 4 numbers")
+                pass
+            else:
+                break
+
         guesses += 1
         cows = cow_counter(randnum, user_guess)
         bulls = bull_counter(randnum, user_guess)
