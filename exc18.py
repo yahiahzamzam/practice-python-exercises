@@ -52,10 +52,23 @@ def cows_and_bulls():
                 if num1 == num and randnum_index != user_guess_index:
                     bull_num += 1
         return bull_num
+    guesses = 0
+    while True:
+        user_guess = input("Enter a number:")
+        guesses += 1
+        cows = cow_counter("1234", user_guess)
+        bulls = bull_counter("1234", user_guess)
+        if cows == 4:
+            print(
+                f"Comgrats! We have a WINNER!!!\nNumber of Guesses: {guesses}")
+            opt = input("Play again:(Y/N)")
+            if opt.lower() == "y":
+                pass
+            elif opt.lower() == "n":
+                break
 
-    user_guess = input("Enter a number:")
-
-    print(cow_counter("1234", user_guess), bull_counter("1234", user_guess))
+        print(
+            f"Cows: {cow_counter("1234", user_guess)}\nBulls: {bull_counter("1234", user_guess)}")
 
 
 cows_and_bulls()
