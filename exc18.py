@@ -63,7 +63,7 @@ def cows_and_bulls():
             user_guess = input("Enter a number:\nQUIT: Q\n")
             if user_guess.lower() == "q":
                 break
-            elif len(user_guess) != 4:
+            elif len(user_guess) != 4 or not user_guess.isdigit():
                 print("please enter exactly 4 numbers")
                 pass
             else:
@@ -78,6 +78,9 @@ def cows_and_bulls():
                 f"Comgrats! We have a WINNER!!!\nNumber of Guesses: {guesses}")
             opt = input("Play again:(Y/N)")
             if opt.lower() == "y":
+                randnum = "".join([str(random.randint(0, 9))
+                                  for _ in range(4)])
+                guesses = 0
                 pass
             elif opt.lower() == "n":
                 break
