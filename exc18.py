@@ -24,9 +24,12 @@ import random
 
 
 def cows_and_bulls():
+
+    # Generating random number
     print("Welcome to the Cows and Bulls Game!")
     randnum = "".join([str(random.randint(0, 9)) for _ in range(4)])
 
+    # Cow counter function
     def cow_counter(randnum, user_guess):
         cow_num = 0
         randnum_index = 0
@@ -40,6 +43,7 @@ def cows_and_bulls():
                     cow_num += 1
         return cow_num
 
+    # bull counter function
     def bull_counter(randnum, user_guess):
         bull_num = 0
         randnum_index = 0
@@ -52,12 +56,14 @@ def cows_and_bulls():
                 if num1 == num and randnum_index != user_guess_index:
                     bull_num += 1
         return bull_num
+
     guesses = 0
     while True:
-        user_guess = input("Enter a number:")
+        user_guess = input("Enter a number:\nQUIT: Q\n")
         guesses += 1
-        cows = cow_counter("1234", user_guess)
-        bulls = bull_counter("1234", user_guess)
+        cows = cow_counter(randnum, user_guess)
+        bulls = bull_counter(randnum, user_guess)
+
         if cows == 4:
             print(
                 f"Comgrats! We have a WINNER!!!\nNumber of Guesses: {guesses}")
@@ -67,8 +73,16 @@ def cows_and_bulls():
             elif opt.lower() == "n":
                 break
 
-        print(
-            f"Cows: {cow_counter("1234", user_guess)}\nBulls: {bull_counter("1234", user_guess)}")
+        elif user_guess.lower() == "q":
+            print(f"HARD LUCK LOOSER. Number was {randnum}")
+            opt = input("Play again:(Y/N)")
+            if opt.lower() == "y":
+                pass
+            elif opt.lower() == "n":
+                break
+        else:
+            print(
+                f"Cows: {cows}\nBulls: {bulls}")
 
 
 cows_and_bulls()
