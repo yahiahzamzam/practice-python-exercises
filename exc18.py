@@ -25,6 +25,8 @@ import random
 
 def cows_and_bulls():
     print("Welcome to the Cows and Bulls Game!")
+    randnum = [random.randint(0, 9) for _ in range(4)]
+    print(randnum)
 
 
 cows_and_bulls()
