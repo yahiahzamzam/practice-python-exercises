@@ -26,7 +26,23 @@ import random
 def cows_and_bulls():
     print("Welcome to the Cows and Bulls Game!")
     randnum = "".join([str(random.randint(0, 9)) for _ in range(4)])
-    print(randnum)
+
+    def cow_counter(randnum, user_guess):
+        cow_num = 0
+        randnum_index = 0
+
+        for num in randnum:
+            randnum_index += 1
+            user_guess_index = 0
+            for num1 in user_guess:
+                user_guess_index += 1
+                if num1 == num and randnum_index == user_guess_index:
+                    cow_num += 1
+        return cow_num
+
+    user_guess = input("Enter a number:")
+
+    print(cow_counter("1234", user_guess))
 
 
 cows_and_bulls()
