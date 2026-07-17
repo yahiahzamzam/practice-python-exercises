@@ -26,3 +26,4 @@ while flag:
         index = int((0.5 * len(a[:index + 1])) // 1)
         print(index)
     break
+# stop
